@@ -1,0 +1,23 @@
+
+                <div class="panel panel-default main"  ng-init="find()"  ng-hide="!authentication.user">
+                  <div class="panel-heading">
+                   <h3 class="panel-title">  <img ng-src="/images/star.svg" > Entertainment</h3>
+                  </div>
+                  <div class="panel-body">
+                    <input class="articles" type = 'text' ng-model = 'search.title' placeholder="Search for article...">
+                    <input type = 'hidden' ng-model = 'enter.category' ng-init="enter.category='entertainment'" placeholder="search articles">
+                        <ul>
+                             <li class="articles" ng-repeat="article in articles|filter:search|filter:enter">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                           <a ui-sref="articlesId({articleId:article._id})" class="articleLinks">{{article.title}}</a>
+                        <br>
+                            <small>Posted <i>{{article.created |date:'mediumDate'}}</i></small>
+                        <small>by <i>{{article.author}}</i> / {{article.category}}</small>
+
+
+                                <small style="visibility:hidden">{{article.creator.id}}</small>
+
+                                     </li>
+                                    </ul>
+                  </div>
+                </div>

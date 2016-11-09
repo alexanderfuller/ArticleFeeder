@@ -1,0 +1,44 @@
+<div ng-controller="ArticlesController" >
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+
+
+      <a class="navbar-brand" href="#"  style="padding:0; margin:0;">
+    <img alt="Brand" id="brand" ng-src="/images/article5.png" onclick="toggleClass2()">
+  </a>
+
+  <h1><a href="#" id="txtlogo" onclick="toggleClass2()">ArticleFeeder</a></h1>
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" ng-hide="!authentication.user">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+
+      <ul class="nav navbar-nav" id="navbar"  ng-hide="!authentication.user" >
+        <li class="active"  onclick="toggleClass(this)" ><a href="#" class="link"> <img ng-src="/images/world.svg" style="height:25px;width:25px;"> All <span class="sr-only">(current)</span></a></li>
+          <li class="li" onclick="toggleClass(this)" ><a ui-sref="enterArticles" class="link"><img ng-src="/images/star.svg"> Entertainment</a></li>
+          <li class="li" onclick="toggleClass(this)" ><a ui-sref="sportArticles" class="link"><img ng-src="/images/soccer.svg"> Sports</a></li>
+          <li class="li"  onclick="toggleClass(this)" ><a ui-sref="techArticles" class="link"><img ng-src="/images/atomic.svg" > Technology</a></li>
+            <li class="li"  onclick="toggleClass(this)" ><a ui-sref="politicArticles" class="link"><img ng-src="/images/capitol.svg" > Politics</a></li>
+      </ul>
+      <ul class="nav navbar-nav"   ng-hide="!authentication.user" id="noactives">
+        <li class="li"><a href="#" class="link">All <span class="sr-only">(current)</span></a></li>
+          <li class="li"><a ui-sref="enterArticles" class="link"  >Entertainment</a></li>
+          <li class="li"><a ui-sref="sportArticles" class="link" >Sports</a></li>
+          <li class="li"><a ui-sref="techArticles" class="link"   >Technology</a></li>
+            <li class="li"><a ui-sref="politicArticles" class="link"   >Politics</a></li>
+      </ul>
+
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>

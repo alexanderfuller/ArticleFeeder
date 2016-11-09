@@ -1,0 +1,49 @@
+
+<!---Show login/Register form if user is not logged in-->
+<div ng-hide="authentication.user" style="margin-top:100px;" ng-controller="ArticlesController">
+<h2 class="formtitle">Create your own articles and share your viewpoints with others!</h2>
+<form class="form" role="search" action="/signin" method="post">
+<h4 style="text-align:center">Login Form</h4>
+  <div class="form-group">
+      <label>Username</label>
+  <input type="text" class="form-control" name="username">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  <input type="submit" class="btn btn-default navbar-btn reg" value="Login">
+    <a class="btn btn-block btn-social btn-facebook" href="/oauth/facebook" style="margin-top:20px;">
+  <img src="/images/fb.png" style="width:30px; height:30px;"><center> Sign in with Facebook</center>
+</a>
+    <a class="btn btn-block btn-social btn-twitter" href="/oauth/twitter" style="margin-top:20px;">
+  <img src="/images/twitter.png" style="width:30px; height:30px;"><center> Sign in with Twitter</center>
+</a>
+    <div ng-show ="error">
+      <strong ng-bind="error"></strong>
+    </div>
+</form>
+<br>
+  <h4 style="float:left;margin-top:30px;width:100%; text-align:center;">Need an account? <a ui-sref="userRegister" style="color:gray">Register here</a></h4>
+</div>
+
+
+<!--Show home page if user logs in or registers-->
+<div class="panel panel-default main"  ng-init="find()" ng-controller="ArticlesController" ng-hide="!authentication.user">
+  <div class="panel-heading">
+    <h3 class="panel-title"><img ng-src="/images/world.svg" style="height:22px;width:25px;margin-bottom:7px;"> All Articles</h3>
+  </div>
+  <div class="panel-body">
+    <input class="articles" type = 'text' ng-model = 'search.title' placeholder="Search for article...">
+        <ul>
+             <li class="articles" ng-repeat="article in articles|filter:search">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+           <a ui-sref="articlesId({articleId:article._id})" class="articleLinks"style="word-wrap:break-word;">{{article.title}}</a>
+        <br>
+            <small>Posted <i>{{article.created |date:'mediumDate'}}</i></small>
+        <small>by <i>{{article.author}}</i> / {{article.category}}</small>
+                <small style="visibility:hidden">{{article.creator.id}}</small>
+                     </li>
+                    </ul>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="panel panel-default user"  ng-hide="!authentication.user"  ng-controller="ArticlesController">
+  <div class="panel-heading" ng-hide="!authentication.user||authentication.user.username=='undefined'">
+    <span class="glyphicon glyphicon-user" style="margin-bottom:8px;margin-right:7px;" aria-hidden="true"></span>
+    <h3 class="panel-title user"> {{authentication.user.username}}</h3>
+  </div>
+  <div class="panel-body" ui-sref="articlesCreate" onclick="removeActive()">
+  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> <h4>Create Article</h4>
+  </div>
+  <div class="panel-body" ui-sref="myArticles"  onclick="removeActive()">
+  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>  <h4>My Articles</h4>
+  </div>
+  <div class="panel-body"  onclick="removeActive()">
+   <a href="/signout" style="color:black"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+   <a href="/signout" class="signout"> Logout</a> <!--.signout-->
+  </div>
+</div>

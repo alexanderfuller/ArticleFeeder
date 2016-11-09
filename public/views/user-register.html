@@ -1,0 +1,25 @@
+
+    <h2 class="formtitle" style="margin-top:100px">Create your own articles and share your viewpoints with others!</h2>
+
+
+    <form class="form" role="search" action="/signup" method="post">
+
+      <h4 style="text-align:center">Register Form</h4>
+      <div class="form-group">
+        <label>Username:</label>
+        <input type="text" class="form-control" name="username">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" name="password">
+      </div>
+      <input type="submit" class="btn btn-default navbar-btn reg" value="Register" ng-click="action='true'">
+      <a class="btn btn-block btn-social btn-facebook" href="/oauth/facebook" style="margin-top:20px;">
+  <img src="/images/fb.png" style="width:30px; height:30px;"> <center>Sign in with Facebook</center>
+  </a>
+      <a class="btn btn-block btn-social btn-twitter" href="/oauth/twitter" style="margin-top:20px;">
+    <img src="/images/twitter.png" style="width:30px; height:30px;"><center>Sign in with Twitter</center>
+  </a>
+    </form>
+    <br>
+      <h4 style="float:left;margin-top:30px;width:100%;text-align:center;">Have an account? <a ui-sref="home" style="color:gray">Login here</a></h4>
